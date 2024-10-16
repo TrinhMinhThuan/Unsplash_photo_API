@@ -1,0 +1,168 @@
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 ảnh mỗi dòng */
+  gap: 20px; /* Khoảng cách giữa tất cả các item trong grid */
+  padding: 0px;
+  margin-bottom: 50px;
+}
+
+.photo-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff; /* Đặt nền trắng để làm nổi bật ảnh */
+  border-radius: 8px; /* Tạo góc bo tròn cho các item */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm shadow thay vì border để tạo cảm giác nổi */
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 5px;
+  height: 100%;
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo-item span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  margin-top: auto; /* Đẩy tên tác giả xuống cuối ô */
+}
+
+
+/* CSS cho loading spinner */
+.loading-container {
+  position: fixed; /* Để overlay nổi lên trên cùng */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Lớp phủ mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Đảm bảo overlay ở trên các nội dung khác */
+}
+
+.loading-spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3); /* Viền ngoài nhạt */
+  border-top: 8px solid white; /* Viền trên trắng */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite; /* Hiệu ứng xoay */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.home-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Màu xanh của nút */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+.home-button:hover {
+  background-color: #0056b3; /* Màu đậm hơn khi hover */
+}
+
+/* Photo Detail Container */
+.photo-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f9fa; /* Màu nền sáng */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+}
+
+/* Tiêu đề ảnh */
+.photo-detail h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Ảnh chi tiết */
+.photo-detail img {
+  max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của container */
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Đổ bóng cho ảnh */
+}
+
+/* Thông tin tác giả và mô tả */
+.photo-detail p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Điều chỉnh số lượng cột theo kích thước màn hình */
+/* Màn hình từ 1200px trở lên - 5 ảnh 1 dòng */
+@media (min-width: 1200px) {
+  .photo-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Màn hình từ 992px đến 1199px - 4 ảnh 1 dòng */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .photo-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Màn hình từ 768px đến 991px - 3 ảnh 1 dòng */
+@media (max-width: 991px) and (min-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Màn hình từ 576px đến 767px - 2 ảnh 1 dòng */
+@media (max-width: 767px) and (min-width: 576px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Màn hình dưới 576px - 1 ảnh 1 dòng */
+@media (max-width: 575px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
